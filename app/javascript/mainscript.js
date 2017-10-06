@@ -86,6 +86,7 @@ function List(container, list) {
 
   this.bindEvents();
   this.render();
+}
 
 List.prototype = {
   changeTableList: function(list) {
