@@ -81,12 +81,11 @@ function resetInput() {
 
 function List(container, list) {
   this.container = container;
-	this.table = container.querySelector("tbody");
-	this.list = list;
+  this.table = container.querySelector("tbody");
+  this.list = list;
 
-  //this.bindEvents(); // [error is not a function]
-  //this.render(); // [error is not a function]
-}
+  this.bindEvents();
+  this.render();
 
 List.prototype = {
   changeTableList: function(list) {
