@@ -167,23 +167,16 @@ List.prototype = {
     input.addEventListener('click', resetInput);
   });
 
-  console.log('Hey!');
-
-// need help 404
   $.getJSON( "json/adults.json", function(data) {
     var adults = data;
-    console.log('Adults =', adults, data); // nothing here
   });
 
   $.getJSON( "json/children.json", function(data) {
     var children = data;
-    console.log('Children =', children, data); // nothing here
   });
 
-  console.log('Yo!');
-
   var adultsList = new List(document.querySelector('#adults'), adults);
-	var childrenList = new List(document.querySelector('#children'), children);
+  var childrenList = new List(document.querySelector('#children'), children);
 
   document.querySelector("#addPerson")
     .addEventListener("click", function() {
