@@ -1,0 +1,26 @@
+	[{
+		"firstName": "Maksym",
+		"lastName": "Kalchenko",
+		"age": 24,
+		"email": "maxkalchenko@gmail.com"
+	}, {
+		"firstName": "Bogdan",
+		"lastName": "Bezpalov",
+		"age": 25,
+		"email": "bbezpalov@mail.ua"
+	}, {
+		"firstName": "Anton",
+		"lastName": "Paschenko",
+		"age": 31,
+		"email": "apaschenko@gmail.de"
+	}, {
+		"firstName": "Vadim",
+		"lastName": "Kulakov",
+		"age": 24,
+		"email": "vadimkulakov@gmail.com"
+	}, {
+		"firstName": "Taras",
+		"lastName": "Kharovskiy",
+		"age": 29,
+		"email": "takh@ciklum.com"
+	}];

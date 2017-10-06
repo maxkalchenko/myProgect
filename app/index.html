@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>maxkalchenko</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style src="css/style.css"></style>
+</head>
+<body>
+  <div class="container">
+    <h2>List of people:</h2>
+    <p>Adults:</p>
+    <table class="table table-striped" id="adults"> <!-- id="adults" -->
+     <thead>
+       <tr>
+        <th>Firstname: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="firstName" data-sort-order="asc">&#8593;</button></th>
+        <th>Lastname: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="lastName" data-sort-order="asc">&#8593;</button></th>
+        <th>Age: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="age" data-sort-order="asc">&#8593;</button></th>
+        <th>Email: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="email" data-sort-order="asc">&#8593;</button></th>
+       </tr>
+     </thead>
+     <tbody id="adults-body"></tbody>
+    </table>
+    <p>Children:</p>
+    <table class="table table-striped" id="children"> <!-- id="children" -->
+     <thead>
+       <tr>
+        <th>Firstname: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="firstName" data-sort-order="desc">&#8595;</button></th>
+        <th>Lastname: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="lastName" data-sort-order="desc">&#8595;</button></th>
+        <th>Age: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="age" data-sort-order="desc">&#8595;</button></th>
+        <th>Email: <button type="button" class="btn btn-info btn-xs sort-button" data-sort-by="email" data-sort-order="desc">&#8595;</button></th>
+       </tr>
+     </thead>
+     <tbody id="children-body"></tbody>
+    </table>
+      <label for="firstName">Firstname:</label>
+      <input type="text" class="form-control"  name="First name"  id="firstName">
+      <label for="lastName">Lastname:</label>
+      <input type="text" class="form-control"  name="Last name"  id="lastName">
+      <label for="age">Age:</label>
+      <input type="number" class="form-control"  name="Age"  id="age">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" name="Email" id="email">
+      <br>
+      <button id="addPerson" type="button" class="btn btn-default">Add new person</button>
+      <button id="sortPeople" type="button" class="btn active" disabled>Sort these people</button> <!-- disabled -->
+      <button id="clearAll" type="button" class="btn btn-danger" disabled>Clear all</button>
+  </div>
+  <script src="javascript/mainscript.js"></script>
+</body>

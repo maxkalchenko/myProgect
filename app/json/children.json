@@ -1,0 +1,21 @@
+	[{
+		"firstName": "Sashko",
+		"lastName": "Suprun",
+		"age": 17,
+		"email": "osu@ciklum.com"
+	}, {
+		"firstName": "Amalia",
+		"lastName": "Raiskaya",
+		"age": 15,
+		"email": "amalia.raiskaya@cbsinteractive.com"
+	}, {
+		"firstName": "Eliot",
+		"lastName": "Pattern",
+		"age": 13,
+		"email": "elpattern@yandex.ru"
+	}, {
+		"firstName": "Mark",
+		"lastName": "Kalchenko",
+		"age": 3,
+		"email": "mark.kalchenko@gmail.com"
+	}];
