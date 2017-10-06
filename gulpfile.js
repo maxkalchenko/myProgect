@@ -18,9 +18,3 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['connect', 'watch']);
-
-// var http = require('http');
-// http.createServer(function (req, res) {
-//     res.writeHead(200, {'Content-Type': 'text/plain'}); // html
-//     res.end('_html-stuff_');
-// }).listen(8080);
