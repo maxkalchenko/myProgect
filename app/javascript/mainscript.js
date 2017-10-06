@@ -88,6 +88,7 @@ function List(container, list) {
   this.render();
 }
 
+
 List.prototype = {
   changeTableList: function(list) {
   	this.list = list;
@@ -162,21 +163,32 @@ List.prototype = {
 };
 
 
+function getSyncJSON(path) { 
+  return ($.ajax({
+	  type: 'GET',
+	  url: path,
+	  dataType: 'json',
+	  async: false, // async: true
+	  success: function(data) {
+	  	console.log(200, data);
+	  },
+	  complete: function(data) {
+	  	console.log(300, data);
+	  },
+	  error: function() {
+	    console.log(404);
+  	  }
+   })).responseJSON;
+}
+
+
 (function init() {
   document.querySelectorAll('.form-control').forEach(function(input) {
     input.addEventListener('click', resetInput);
   });
 
-  $.getJSON( "json/adults.json", function(data) {
-    var adults = data;
-  });
-
-  $.getJSON( "json/children.json", function(data) {
-    var children = data;
-  });
-
-  var adultsList = new List(document.querySelector('#adults'), adults);
-  var childrenList = new List(document.querySelector('#children'), children);
+  var adultsList = new List(document.querySelector('#adults'), getSyncJSON('json/adults.json'));
+  var childrenList = new List(document.querySelector('#children'), getSyncJSON('json/children.json'));
 
   document.querySelector("#addPerson")
     .addEventListener("click", function() {
