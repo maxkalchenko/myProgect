@@ -1,6 +1,6 @@
 function capitalize(str) {
   str = str.toLowerCase();
-  str = str.split()
+  str = str.toString().split('');
   str[0] = str[0].toUpperCase();
 
   return str.join('');
@@ -133,8 +133,7 @@ List.prototype = {
   },
 
   add: function(person) {
-    // Validation
-  	this.list.push(person);
+    this.list.push(person);
     this.render();
   },
 
@@ -163,32 +162,31 @@ List.prototype = {
 };
 
 
-function getSyncJSON(path) { 
-  return ($.ajax({
+function getJSON(path, callback) {
+  $.ajax({
 	  type: 'GET',
 	  url: path,
 	  dataType: 'json',
-	  async: false, // async: true
-	  success: function(data) {
-	  	console.log(200, data);
-	  },
-	  complete: function(data) {
-	  	console.log(300, data);
-	  },
-	  error: function() {
-	    console.log(404);
-  	  }
-   })).responseJSON;
+	  async: true,
+	  complete: callback
+  });
 }
-
 
 (function init() {
   document.querySelectorAll('.form-control').forEach(function(input) {
     input.addEventListener('click', resetInput);
   });
 
-  var adultsList = new List(document.querySelector('#adults'), getSyncJSON('json/adults.json'));
-  var childrenList = new List(document.querySelector('#children'), getSyncJSON('json/children.json'));
+  var adultsList;
+  var childrenList;
+
+  getJSON('json/adults.json', function(data) {
+    adultsList = new List(document.querySelector('#adults'), data.responseJSON);
+  });
+
+  getJSON('json/children.json', function(data) {
+    childrenList = new List(document.querySelector('#children'), data.responseJSON);
+  });
 
   document.querySelector("#addPerson")
     .addEventListener("click", function() {
