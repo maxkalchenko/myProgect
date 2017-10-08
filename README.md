@@ -1,2 +1,2 @@
-# myProgect
+# myProject
 First JS project
