@@ -162,15 +162,24 @@ List.prototype = {
 };
 
 
-function getJSON(path, callback) {
-  $.ajax({
-	  type: 'GET',
-	  url: path,
-	  dataType: 'json',
-	  async: true,
-	  complete: callback
-  });
+function get(url) {
+    return new Promise(function(resolve, reject) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", url, true); 
+      xhttp.onload = function() {
+        if (xhttp.status === 200) {
+          resolve(JSON.parse(xhttp.response));
+        } else {
+          reject(xhttp.statusText);
+        }
+      };
+      xhttp.onerror = function(){
+        reject(xhttp.statusText);
+      };
+      xhttp.send();
+    });
 }
+
 
 (function init() {
   document.querySelectorAll('.form-control').forEach(function(input) {
@@ -180,12 +189,13 @@ function getJSON(path, callback) {
   var adultsList;
   var childrenList;
 
-  getJSON('json/adults.json', function(data) {
-    adultsList = new List(document.querySelector('#adults'), data.responseJSON);
-  });
-
-  getJSON('json/children.json', function(data) {
-    childrenList = new List(document.querySelector('#children'), data.responseJSON);
+  get('json/children.json').then(function(data) {
+    childrenList = new List(document.querySelector('#children'), data);
+    return get('json/adults.json').then(function(data) {
+      adultsList = new List(document.querySelector('#adults'), data);
+    });
+  }).catch(function(error) {
+    console.log('Error: ', error);
   });
 
   document.querySelector("#addPerson")
